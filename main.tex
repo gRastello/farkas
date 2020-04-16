@@ -46,11 +46,79 @@
 \usepackage{enumitem}
 \setenumerate{label=(\arabic*)}
 
+% Commands.
+
+% Useless stuff.
+\usepackage{epigraph}
+
 \begin{document}
 \title{Il Lemma di Farkas}
 \author{Gabriele Rastello}
 \maketitle
 
 \section{Problemi lineari}
+\epigraph{Linear programming, surprisingly, is not directly related to computer programming.}{\textit{Jiri Matousek, Bernd Garter}}
+Sono problemi lineari tutti quei problimi in cui ci si prefigge di trovare il valore massimo (o minimo) che una certa funzione lineare di \(n\) variabili può assumere, dato un qualche numero di vincoli (anche essi lineari) su queste variabili.
+Prima di definire formalmente un problema lineare consideriamo un esempio.
+
+\begin{example}
+  \label{es:problema_lineare}
+  \begin{equation*}
+    \begin{array}{ll}
+      \text{Massimizza} & x_1 + x_2\\
+      \text{rispetto ai vincoli} & x_1, x_2\geq 0\\
+                        & x_2 - x_1 \leq 1\\
+                        & x_1 + 6x_2 \leq 15\\
+                        & 4x_1 - x_2 \leq 10
+    \end{array}
+  \end{equation*}
+  In \(\mathbb{R}^2\) ogni vincolo individua un semipiano.
+  La zona di \(\mathbb{R}^2\) su cui vogliamo massimizzare \(x_1+x_2\) è dunque l'intersezione di tutti questi semipiani ed è rappresentata in Figura \ref{fig:problema_lineare}.
+  Osserviamo che quest'area non è vuota e che è un poligono convesso.
+  Esiste dunque una coppia \((x_1^*,x_2^*)\) che massimizza \(x_1+x_2\); la coppia in questione può essere ottenuta cercando quale punto del poligono si trova ``più distante'' nella direzione di massima crescita della funzione (data dal suo gradiente \((1, 1)\)).
+  Otteniamo così \(x_1^*=3, x_2^*=2\) e infine che il valore massimo di \(x_1+x_2\) rispetto ai vincoli dati è \(5\).
+
+  \begin{figure}
+    \begin{center}
+      \begin{tikzpicture}
+        \draw[->] (-1, 0) -- (4, 0) node[right]{\(x_1\)};
+        \draw[->] (0, -1) -- (0, 3.5) node[above]{\(x_2\)};
+
+        \draw[domain = -.75:3.25] plot (\x, {\x + 1});
+        \draw[domain = -.75:4] plot (\x, {(15 - \x)/6});
+        \draw[domain = 2.25:3.5] plot (\x, {4*\x - 10});
+
+        \filldraw[fill=green!20!white]
+        (0, 0) -- (0, 1) -- (9/7, 16/7) -- (3, 2) -- (10/4, 0);
+        \filldraw (3, 2) circle (3pt) node[above right]{\((3,2)\)};
+      \end{tikzpicture}
+    \end{center}
+    \caption{}
+    \label{fig:problema_lineare}
+  \end{figure}
+\end{example}
+
+\begin{definition}
+  \label{def:problema_lineare}
+  Un \textbf{problema lineare} consiste in una funzione lineare di \(n\) variabili detta \textbf{funzione obiettivo} (o \textbf{funzione di costo}) e in un insieme di \(m\) vincoli lineari.
+  La funzione obiettivo ha la forma \(\mathbf{c}^T\mathbf{x} = c_1x_1+\ldots+c_nx_n\) per qualche \(\mathbf{c}\in\mathbb{R}^n\); lo stesso si applica ai vincoli.
+  Dare un problema lineare è allora equivalente a dare un vettore \(\mathbf{c}\in\mathbb{R}^n\), una matrice \(A\in\mathbb{R}^{m\times n}\) e un vettore \(\mathbf{b}\in\mathbb{R}^m\).
+  Scriveremo compattamente
+  \begin{equation*}
+    \begin{array}{ll}
+      \text{Massimizza} & \mathbf{c}^T\mathbf{x}\\
+      \text{rispetto ai vincoli} & A\mathbf{x}\leq\mathbf{b}.
+    \end{array}
+  \end{equation*}
+\end{definition}
+
+\begin{remark}
+  \label{def:definizione_generale}
+  La Definizione \ref{def:problema_lineare} è del tutto generale.
+  Infatti un problema di minimizzazione può essere trasformato in uno di massimizzazione cambiando segno alla funzione obiettivo.
+  I vincoli espressi tramite un'uguaglianza \(\mathbf{a}^T\mathbf{x}=b\) sono equivalenti alla coppia di disuguaglianze \(\mathbf{a}^T\mathbf{x}\geq b\), \(\mathbf{a}^T\mathbf{x}\leq b\).
+  Ed infine le disuguaglianze possono essere espresse tutte quante nella forma \(\mathbf{a}^T\mathbf{x}\leq b\) e.
+
+\end{remark}
 
 \end{document}
