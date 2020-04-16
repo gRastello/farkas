@@ -114,7 +114,7 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
 \end{definition}
 
 \begin{remark}
-  \label{def:definizione_generale}
+  \label{oss:definizione_generale}
   La Definizione \ref{def:problema_lineare} è del tutto generale.
   Infatti un problema di minimizzazione può essere trasformato in uno di massimizzazione cambiando segno alla funzione obiettivo.
   I vincoli espressi tramite un'uguaglianza \(\mathbf{a}^T\mathbf{x}=b\) sono equivalenti alla coppia di disuguaglianze \(\mathbf{a}^T\mathbf{x}\geq b\), \(\mathbf{a}^T\mathbf{x}\leq b\).
@@ -125,5 +125,16 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
   \label{def:soluzioni}
   Un vettore \(\mathbf{x}\in\mathbb{R}^n\) che soddisfa tutti i vincoli di un problema lineare è una \textbf{soluzione possibile} per il problema.
   Un problema è \textbf{soddisfacibile} se ammette una soluzione possibile ed è \textbf{insoddisfacibile} altrimenti. Una soluzione possibile \(\mathbf{x}^*\in\mathbb{R}^n\) è una \textbf{soluzione ottimale} se \(\mathbf{c}^T\mathbf{x}^*\) è massimo tra i valori \(\mathbf{c}^T\mathbf{x}\) con \(\mathbf{x}\) soluzione possibile.
+\end{definition}
+
+\begin{remark}
+  \label{oss:soluzioni_ottimali_illimitate}
+  Va osservato che, generalmente, un sistema lineare può avere più di una soluzione ottimale; come esempio si considerino i vincoli dell'Esercizio \ref{es:problema_lineare} applicati però alla funzione obiettivo \(\frac{1}{6}x_1+x_2\).
+  È inoltre vero che, anche se un sistema è soddisfacibile, possono non esistere soluzioni ottimali; come esempio basta rimuovere i vincoli \(x_1+6x_2\leq15\) e \(4x_1-x_2\leq10\) dall'Esercizio \ref{es:problema_lineare}.
+\end{remark}
+
+\begin{definition}
+  \label{def:problemi_limitati_e_illimitati}
+  Se un problema lineare ammette soluzione ottimale allora è detto \textbf{limitato}; se non ne ammette viene detto \textbf{illimitato}.
 \end{definition}
 \end{document}
