@@ -55,6 +55,7 @@
 \title{Il Lemma di Farkas}
 \author{Gabriele Rastello}
 \maketitle
+\tableofcontents
 
 \section{Problemi lineari}
 \epigraph{Linear programming, surprisingly, is not directly related to computer programming.}{\textit{Jiri Matousek, Bernd Garter}}
@@ -138,6 +139,8 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
   Se un problema lineare ammette (almeno) una soluzione ottimale allora è detto \textbf{limitato}; se non ne ammette viene detto \textbf{illimitato}.
 \end{definition}
 
+Concludiamo la sezione con un esempio di applicazione dei problemi lineari all'analisi numerica (in particolare alla regressione lineare) e con un'osservazione sulla difficoltà computazionale della ricerca di soluzioni (possibili e ottimali) ad un dato problema lineare.
+
 \begin{example}
   \label{es:minimi_quadrati}
   Dato un insieme di punti \(\{(x_i, y_i)\colon\ i=1,\ldots,n\}\) di \(\mathbb{R}^2\) è possibile ottenere l'equazione di una retta che si avvicina il più possibile ai punti dati usando il \textit{metodo dei minimi quadrati}.
@@ -184,5 +187,15 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
   \item ripetendo i passi (1) e (2) su questo nuovo intervallo possiamo molto velocemente localizzare il massimo.
   \end{enumerate}
   Questo ci dice che, computazionalmente, il problema di ricerca di una soluzione ottimale è tanto difficile quanto quello di ricerca di una soluzione qualunque.
-  \end{remark}
+\end{remark}
+
+\section{Dualità e Lemma di Farkas}
+
+\begin{thebibliography}{1}
+\bibitem{understanding_linear_programming}
+  Jiri Matousek \& Bernd Gartner,
+  \textit{Understanding and Using Linear Programming},
+  Springer,
+  2007.
+\end{thebibliography}
 \end{document}
