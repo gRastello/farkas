@@ -81,6 +81,9 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
   \begin{figure}
     \begin{center}
       \begin{tikzpicture}
+        \filldraw[fill=green!20!white]
+        (0, 0) -- (0, 1) -- (9/7, 16/7) -- (3, 2) -- (10/4, 0);
+
         \draw[->] (-1, 0) -- (4, 0) node[right]{\(x_1\)};
         \draw[->] (0, -1) -- (0, 3.5) node[above]{\(x_2\)};
 
@@ -88,8 +91,6 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
         \draw[domain = -.75:4] plot (\x, {(15 - \x)/6});
         \draw[domain = 2.25:3.5] plot (\x, {4*\x - 10});
 
-        \filldraw[fill=green!20!white]
-        (0, 0) -- (0, 1) -- (9/7, 16/7) -- (3, 2) -- (10/4, 0);
         \filldraw (3, 2) circle (3pt) node[above right]{\((3,2)\)};
       \end{tikzpicture}
     \end{center}
@@ -117,8 +118,7 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
   La Definizione \ref{def:problema_lineare} è del tutto generale.
   Infatti un problema di minimizzazione può essere trasformato in uno di massimizzazione cambiando segno alla funzione obiettivo.
   I vincoli espressi tramite un'uguaglianza \(\mathbf{a}^T\mathbf{x}=b\) sono equivalenti alla coppia di disuguaglianze \(\mathbf{a}^T\mathbf{x}\geq b\), \(\mathbf{a}^T\mathbf{x}\leq b\).
-  Ed infine le disuguaglianze possono essere espresse tutte quante nella forma \(\mathbf{a}^T\mathbf{x}\leq b\) e.
-
+  Ed infine le disuguaglianze possono essere espresse tutte quante nella forma \(\mathbf{a}^T\mathbf{x}\leq b\).
 \end{remark}
 
 \end{document}
