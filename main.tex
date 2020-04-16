@@ -165,4 +165,24 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
   Nel caso di una soluzione ottimale tutte queste disuguaglianze devono valere come uguaglianze, altrimenti sarebbe possibile ridurre ulteriormente il corrispettivo \(e_i\).
   Ne consegue che una soluzione ottimale del problema fornisce una retta che minimizza \((*)\).
 \end{example}
+
+\begin{remark}
+  \label{oss:binary_search}
+  Consideriamo un problema lineare generico
+  \begin{equation*}
+    \begin{array}{ll}
+      \text{Massimizza} & \mathbf{c}^T\mathbf{x}\\
+      \text{rispetto ai vincoli} & A\mathbf{x}\leq\mathbf{b}.
+    \end{array}
+  \end{equation*}
+  e supponiamo di sapere che \(0\leq \mathbf{c}^T\mathbf{x}\leq M\) per un \(M\in\mathbb{R}\) e ogni soluzione possibile \(\mathbf{x}\).
+  Supponiamo inoltre di avere una procedura che ci permetta di sapere quando un arbitrario problema lineare è soddisfacibile.
+  Allora possiamo approssimare il valore massimo di \(\mathbf{c}^T\mathbf{x}\) con una tecnica di ricerca binaria:
+  \begin{enumerate}
+  \item aggiungiamo al problema iniziale il vincolo \(\mathbf{c}^T\mathbf{x}\geq \frac{M}{2}\) e determiniamo se questo nuovo problema è soddisfacibile,
+  \item se lo è allora il massimo di \(\mathbf{c}^T\mathbf{x}\) si trova tra \(\frac{M}{2}\) e \(M\), altrimenti si trova tra \(0\) e \(\frac{M}{2}\),
+  \item ripetendo i passi (1) e (2) su questo nuovo intervallo possiamo molto velocemente localizzare il massimo.
+  \end{enumerate}
+  Questo ci dice che, computazionalmente, il problema di ricerca di una soluzione ottimale è tanto difficile quanto quello di ricerca di una soluzione qualunque.
+  \end{remark}
 \end{document}
