@@ -137,4 +137,32 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
   \label{def:problemi_limitati_e_illimitati}
   Se un problema lineare ammette (almeno) una soluzione ottimale allora è detto \textbf{limitato}; se non ne ammette viene detto \textbf{illimitato}.
 \end{definition}
+
+\begin{example}
+  \label{es:minimi_quadrati}
+  Dato un insieme di punti \(\{(x_i, y_i)\colon\ i=1,\ldots,n\}\) di \(\mathbb{R}^2\) è possibile ottenere l'equazione di una retta che si avvicina il più possibile ai punti dati usando il \textit{metodo dei minimi quadrati}.
+  L'intera tecnica è basata sul cercare \(a,b\in\mathbb{R}\) tali che
+  \begin{equation*}
+    \sum_{i=1}^n(ax_i + b - y_i)^2
+  \end{equation*}
+  sia minimo. Un metodo alternativo (e per certi lati migliore) consiste nel minimizzare direttamente la somma degli errori in valore assoluto:
+  \begin{equation*}
+    \tag{\(*\)}
+    \sum_{i=1}^n|ax_i + b - y_i|.
+  \end{equation*}
+  Seppure questa quantità non sia lineare il problema può essere ridotto ad un problema lineare.
+  Si consideri infatti il problema
+  \begin{equation*}
+    \begin{array}{lll}
+      \text{Minimizza} & e_1 + \ldots + e_n &\\
+      \text{rispetto ai vincoli} & e_i\geq ax_i + b - y_i &\\
+                       & e_i\geq -(ax_i + b - y_i) &,\ \text{con}\ i = 1,\ldots, n.\\
+    \end{array}
+  \end{equation*}
+  Le variabili qui sono \(a, b, e_1,\ldots, e_n\).
+  Ogni \(e_i\) è una variabile ausiliaria che rappresenta l'errore relativo al punto \((x_i, y_i)\); infatti i vincoli ci assicurano che
+  \[e_i\geq\max\big(ax_i + b - y_i, -(ax_i + b - y_i)\big) = |ax_i + b - y_i|.\]
+  Nel caso di una soluzione ottimale tutte queste disuguaglianze devono valere come uguaglianze, altrimenti sarebbe possibile ridurre ulteriormente il corrispettivo \(e_i\).
+  Ne consegue che una soluzione ottimale del problema fornisce una retta che minimizza \((*)\).
+\end{example}
 \end{document}
