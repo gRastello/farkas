@@ -47,6 +47,7 @@
 \setenumerate{label=(\arabic*)}
 
 % Commands.
+\newcommand{\dual}[1]{#1^{\text{op}}}
 
 % Useless stuff.
 \usepackage{epigraph}
@@ -217,6 +218,45 @@ Concludiamo la sezione con un esempio di applicazione dei problemi lineari all'a
   È dunque sempre possibile supporre che un problema lineare sia dato nella forma \((P^*)\).
 \end{remark}
 
+\begin{remark}
+  \label{oss:bound}
+  Consideriamo ora un generico problema lineare con \(m\) vincoli e \(n\) variabili
+  \begin{equation*}
+    \begin{array}{ll}
+      \text{Massimizza} & \mathbf{c}^T\mathbf{x}\\
+      \text{rispetto ai vincoli} & A\mathbf{x}\leq\mathbf{b}\\
+                        & \mathbf{x}\geq0.
+    \end{array}
+  \end{equation*}
+  Combinando gli \(m\) vincoli con altrettanti coefficienti \emph{non negativi} \(y_1,\ldots,y_m\) si ottiene una nuova disuguaglianza
+  \[d_1x_1+\ldots+d_nx_n\leq y_1b_1+\ldots+y_nb_n\]
+  dove \(d_i = y_1a_{1,i}+\ldots+y_na_{n,i}\). Se inoltre gli \(y_i\) vengono scelti in modo tale che \(c_j\leq d_j\) per ogni \(j=1,\ldots, n\) si ottiene il seguente limite superiore alla funzione obiettivo \(\mathbf{c}^T\mathbf{x}\)
+  \[c_1x_1+\ldots+c_nx_n\leq d_1x_1+\ldots+d_nx_n\leq y_1b_1+\ldots+y_nb_n.\]
+  Siamo ovviamente interessati a \emph{minimizzare} questo limite superiore il che ci porta alla prossima definizione.
+\end{remark}
+
+\begin{definition}
+  \label{def:problema_duale}
+  Dato un problema lineare
+  \begin{equation*}
+    \begin{array}{ll}
+      \tag{\(P\)}
+      \text{Massimizza} & \mathbf{c}^T\mathbf{x}\\
+      \text{rispetto ai vincoli} & A\mathbf{x}\leq\mathbf{b}\\
+                        & \mathbf{x}\geq0
+    \end{array}
+  \end{equation*}
+  definiamo il suo \textbf{problema lineare duale}
+  \begin{equation*}
+    \begin{array}{ll}
+      \tag{\(\dual{P}\)}
+      \text{Minimizza} & \mathbf{b}^T\mathbf{y}\\
+      \text{rispetto ai vincoli} & A^T\mathbf{y}\geq\mathbf{c}\\
+                        & \mathbf{y}\geq0.
+    \end{array}
+  \end{equation*}
+\end{definition}
+  
 \subsection{Il Lemma di Farkas}
 
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
