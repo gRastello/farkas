@@ -191,6 +191,36 @@ Concludiamo la sezione con un esempio di applicazione dei problemi lineari all'a
 
 \section{Dualità e Lemma di Farkas}
 
+\subsection{Problemi lineari duali e Teorema di Dualità}
+\begin{remark}
+  \label{oss:forma_quasi_equazionale}
+  Consideriamo un problema lineare
+  \begin{equation*}
+    \begin{array}{ll}
+      \tag{\(P\)}
+      \text{Massimizza} & \mathbf{c}^T\mathbf{x}\\
+      \text{rispetto ai vincoli} & A\mathbf{x}\leq\mathbf{b}.
+    \end{array}
+  \end{equation*}
+  Per ogni \(x_i\) si considerino due variabili \(y_i, y'_i\) e si sostituisca ogni occorrenza di \(x_i\) nel problema con \(y_i - y'_i\).
+  Aggiungendo i vincoli \(\mathbf{y},\mathbf{y'}\geq0\) si ottiene un secondo problema lineare
+  \begin{equation*}
+    \begin{array}{ll}
+      \tag{\(P^*\)}
+      \text{Massimizza} & \mathbf{c'}^T\mathbf{z}\\
+      \text{rispetto ai vincoli} & A'\mathbf{z}\leq\mathbf{b'}\\
+                        & \mathbf{z}\geq0
+    \end{array}
+  \end{equation*}
+  nelle variabili \(\mathbf{y}, \mathbf{y'}\) (qui rappresentate come un unico gruppo \(\mathbf{z}\) per semplicità) che è del tutto equivalente al sistema di partenza.
+  Infatti una soluzione del primo fornisce una soluzione del secondo perché ogni numero reale può essere scritto come differenza di due reali positivi; mentre ogni soluzione del secondo fornisce una soluzione del primo ottenuta come \(x_i = y_i-y'_i\).
+  È dunque sempre possibile supporre che un problema lineare sia dato nella forma \((P^*)\).
+\end{remark}
+
+\subsection{Il Lemma di Farkas}
+
+\subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
+
 \begin{thebibliography}{1}
 \bibitem{understanding_linear_programming}
   Jiri Matousek \& Bernd Gartner,
