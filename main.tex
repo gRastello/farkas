@@ -345,6 +345,15 @@ Quella che presenteremo noi (si veda \ref{subsec:dim_dualità}) utilizza il Lemm
 \subsection{Il Lemma di Farkas}
 \label{subsec:lemma_di_farkas}
 
+\begin{lemma}[Lemma di Farkas]
+  \label{lemma:farkas}
+  Data una matrice \(A\in\mathbb{R}^{m\times n}\) e un vettore \(\mathbf{b}\in\mathbb{R}^m\) allora una e solo una delle seguenti affermazioni è vera:
+  \begin{enumerate}
+  \item esiste un vettore \(\mathbf{x}\in\mathbb{R}^n\) tale che \(A\mathbf{x}=\mathbf{b}\) e \(\mathbf{x} \geq 0\),
+  \item esiste un vettore \(\mathbf{y}\in\mathbb{R}^m\) tale che \(\mathbf{y}^TA \geq \mathbf{0}^T\) e \(\mathbf{y}^T\mathbf{x} \leq 0\).
+  \end{enumerate}
+\end{lemma}
+
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
 \label{subsec:dim_dualità}
 
