@@ -364,6 +364,17 @@ Per farlo introduciamo la nozione di cono convesso generato da un insieme di vet
   delle loro combinazioni lineari a coefficienti non negativi.
 \end{definition}
 
+Da questa definizione si ottiene facilmente che il Lemma di Farkas è equivalente alla seguente affermazione geometrica.
+
+\begin{lemma}[Lemma di Farkas (versione geometrica)]
+  \label{lemma:farkas_geometrico}
+  Se \(\mathbf{a}_1,\ldots,\mathbf{a_n}\in\mathbb{R}^m\) sono vettori, \(C\) è il loro cono convesso e \(\mathbf{b}\in\mathbb{R}^m\) è un ulteriore vettore allora una e solo una delle seguenti affermazioni è vera:
+  \begin{enumerate}
+  \item \(\mathbf{b}\) appartiene a \(C\),
+  \item esiste un iperpiano \(\{\mathbf{x}\in\mathbb{R}^M\colon\ \mathbf{y}^T\mathbf{x} = 0\}\) di \(\mathbb{R}^m\) che ``separa'' gli \(\mathbf{a}_i\) da \(\mathbf{b}\); cioè tale che \(\mathbf{y}^T\mathbf{a}_i \leq 0\) per ogni \(i=1,\ldots, n\) e \(\mathbf{y}^T\mathbf{b} > 0\).
+  \end{enumerate}
+\end{lemma}
+
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
 \label{subsec:dim_dualità}
 
