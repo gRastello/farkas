@@ -59,6 +59,7 @@
 \tableofcontents
 
 \section{Problemi lineari}
+\label{sec:problemi_lineari}
 \epigraph{Linear programming, surprisingly, is not directly related to computer programming.}{\textit{Jiri Matousek, Bernd Garter}}
 Sono problemi lineari tutti quei problimi in cui ci si prefigge di trovare il valore massimo (o minimo) che una certa funzione lineare di \(n\) variabili può assumere, dato un qualche numero di vincoli (anche essi lineari) su queste variabili.
 Prima di definire formalmente un problema lineare consideriamo un esempio.
@@ -191,8 +192,10 @@ Concludiamo la sezione con un esempio di applicazione dei problemi lineari all'a
 \end{remark}
 
 \section{Dualità e Lemma di Farkas}
+\label{sec:dualità_e_lemma_di_farkas}
 
 \subsection{Problemi lineari duali e Teorema di Dualità}
+\label{subsec:duali}
 \begin{remark}
   \label{oss:forma_quasi_equazionale}
   Consideriamo un problema lineare
@@ -305,9 +308,45 @@ Concludiamo la sezione con un esempio di applicazione dei problemi lineari all'a
   Il Teorema di Dualità, che ora enuncieremo, mostra che questa situazione particolare è in realtà necessaria.
 \end{example}
 
+\begin{theorem}[Teorema di Dualità]
+  \label{teo:dualità}
+  Dato un problema lineare
+  \begin{equation*}
+    \begin{array}{ll}
+      \tag{\(P\)}
+      \text{Massimizza} & \mathbf{c}^T\mathbf{x}\\
+      \text{rispetto ai vincoli} & A\mathbf{x} \leq \mathbf{b}\\
+                        & \mathbf{x} \geq 0
+    \end{array}
+  \end{equation*}
+  e il suo duale
+  \begin{equation*}
+    \begin{array}{ll}
+      \tag{\(\dual{P}\)}
+      \text{Minimizza} & \mathbf{b}^T\mathbf{y}\\
+      \text{rispetto ai vincoli} & A^T\mathbf{y} \geq \mathbf{c}\\
+                        & \mathbf{y} \geq 0
+    \end{array}
+  \end{equation*}
+  una e solo una delle seguenti affermazioni è vera:
+  \begin{enumerate}
+  \item \((P)\) e \((\dual{P})\) sono insoddisfacibili,
+  \item \((P)\) è illimitato e \((\dual{P})\) è insoddisfacibile,
+  \item \((\dual{P})\) è illimitato e \((P)\) è insoddisfacibile,
+  \item \((P)\) e \((\dual{P})\) sono entrambi soddisfacibili e limitati.
+    Inoltre se \(\mathbf{x}^*\) e \(\mathbf{y}^*\) sono due soluzioni ottimali (rispettivamente di \((P)\) e di \((\dual{P})\)) allora
+    \[\mathbf{c}^T\mathbf{x} = \mathbf{b}^T\mathbf{y}.\]
+  \end{enumerate}
+\end{theorem}
+
+Esistono diverse dimostrazioni di questo risultato.
+Quella che presenteremo noi (si veda \ref{subsec:dim_dualità}) utilizza il Lemma di Farkas, che analizzeremo nella prossima sezione.
+
 \subsection{Il Lemma di Farkas}
+\label{subsec:lemma_di_farkas}
 
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
+\label{subsec:dim_dualità}
 
 \begin{thebibliography}{1}
 \bibitem{understanding_linear_programming}
