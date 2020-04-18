@@ -263,6 +263,48 @@ Concludiamo la sezione con un esempio di applicazione dei problemi lineari all'a
   Possiamo dunque dire che \((P)\) e \((\dual{P})\) sono duali l'uno rispetto all'altro.
 \end{remark}
 
+\begin{proposition}[Teorema di Dualità debole]
+  \label{prop:dualità_debole}
+  Consideriamo ancora il problema lineare \((P)\).
+  Per ogni soluzione possibile \(\mathbf{x}\) di \((P)\) e \(\mathbf{y}\) di \((\dual{P})\) si ha che
+  \[\mathbf{c}^T\mathbf{x} \leq \mathbf{b}^T\mathbf{y}.\]
+  Questo ci dice che
+  \begin{enumerate}
+  \item se \((P)\) è illimitato allora \((\dual{P})\) è insoddisfacibile,
+  \item se \((\dual{P})\) è illimitato \footnote{Inferiormente, trattandosi di un problema di minimizzazione.} allora \((P)\) è insoddisfacibile.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  Ovvia dalla discussione fatta nell'Osservazione \ref{oss:bound} e dalla Definizione \ref{def:problema_duale} di problema duale.
+\end{proof}
+
+\begin{example}
+  \label{es:problema_duale}
+  Consideriamo il problema lineare
+  \begin{equation*}
+    \begin{array}{ll}
+      \text{Massimizza} & 2x_1 + 3x_2\\
+      \text{rispetto ai vincoli} & 4x_1 + 8x_2 \leq 12\\
+                        & 2x_1 + x_2 \leq 3\\
+                        & 3x_1 + 2x_2 \leq 4\\
+                        & x_1, x_2\geq 0
+    \end{array}
+  \end{equation*}
+  e il suo duale
+  \begin{equation*}
+    \begin{array}{ll}
+      \text{Minimizza} & 12y_1 + 3y_2 + 4y_3\\
+      \text{rispetto ai vincoli} & 4y_1 + 2y_2 + 3y_3 \geq 2\\
+                       & 8y_1 + y_2 + 2 y_3 \geq 3\\
+                       & y_1, y_2, y_3 \geq 0.
+    \end{array}
+  \end{equation*}
+  Si può vedere che il problema duale è limitato ed ha soluzione ottimale \(4.75\).
+  Anche il problema originale è limitato e, sorprendentemente, ha come soluzione ottimale anch'esso \(4.75\).
+  Il Teorema di Dualità, che ora enuncieremo, mostra che questa situazione particolare è in realtà necessaria.
+\end{example}
+
 \subsection{Il Lemma di Farkas}
 
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
