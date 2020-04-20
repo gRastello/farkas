@@ -372,7 +372,7 @@ Da questa definizione si ottiene facilmente che il Lemma di Farkas è equivalent
   Se \(\mathbf{a}_1,\ldots,\mathbf{a_n}\in\mathbb{R}^m\) sono vettori, \(C\) è il loro cono convesso e \(\mathbf{b}\in\mathbb{R}^m\) è un ulteriore vettore allora una e solo una delle seguenti affermazioni è vera:
   \begin{enumerate}
   \item \(\mathbf{b}\) appartiene a \(C\),
-  \item esiste un iperpiano \(\{\mathbf{x}\in\mathbb{R}^M\colon\ \mathbf{y}^T\mathbf{x} = 0\}\) di \(\mathbb{R}^m\) che ``separa'' gli \(\mathbf{a}_i\) da \(\mathbf{b}\); cioè tale che \(\mathbf{y}^T\mathbf{a}_i \leq 0\) per ogni \(i=1,\ldots, n\) e \(\mathbf{y}^T\mathbf{b} > 0\).
+  \item esiste un iperpiano \(H=\{\mathbf{x}\in\mathbb{R}^M\colon\ \mathbf{y}^T\mathbf{x} = 0\}\) di \(\mathbb{R}^m\) che ``separa'' gli \(\mathbf{a}_i\) da \(\mathbf{b}\); cioè tale che \(\mathbf{y}^T\mathbf{a}_i \leq 0\) per ogni \(i=1,\ldots, n\) e \(\mathbf{y}^T\mathbf{b} > 0\).
   \end{enumerate}
 \end{lemma}
 
@@ -407,6 +407,21 @@ Da questa definizione si ottiene facilmente che il Lemma di Farkas è equivalent
   \label{fig:farkas_geometrico}
 \end{figure}
 
+La seguente proposizione verrà utilizzata nella dimostrazione del Teorema di Dualità.
+
+\begin{proposition}
+  \label{prop:farkas_2}
+  Data una matrice \(A\in\mathbb{R}^{m\times n}\) e un vettore \(\textbf{b}\in \mathbb{R}^{m}\) il sistema \(A \textbf{x} \leq \textbf{b}\) ammette una soluzione \emph{non negativa} se e solo se ogni \(\mathbf{y}\in \mathbb{R}^m\) \emph{non negativo} che soddisfa \(\textbf{y}^TA \geq \textbf{0}^T\) soddisfa anche \(\textbf{y}^T \textbf{b} \geq 0\).
+\end{proposition}
+
+\begin{proof}
+  Il Lemma di Farkas \ref{lemma:farkas} ci dice che un sistema \(A \textbf{x}= \textbf{b}\) ha una soluzione non negativa se e solo se per ogni \(\textbf{y}\) tale che \(\textbf{y}^TA \geq \textbf{0}^T\) si ha anche \(\textbf{y}^T \textbf{b} \geq 0\).
+  Per poter applicare questo risultato costruiamo, data una matrice \(A\in \mathbb{R}^{m\times n}\), \(\overline{A}= (A|I_m)\) dove \(I_m\in \mathbb{R}^{m\times m}\) è la matrice identità.
+  Si ha ora che \(A \textbf{x} \leq \textbf{b}\) ammette una soluzione non negativa se e solo se \(\overline{A} \mathbf{\overline{x}} = \textbf{b}\) ha una soluzione non negativa.
+
+  Per quanto detto prima questo è equivalente a chiedere che ogni \(\textbf{y}\in \mathbb{R}^m\) che soddisfa \(\mathbf{y}^T\overline{A} \geq \textbf{0}^T\) soddisfi anche \(\mathbf{y}^T \textbf{b} \geq 0\).
+  Ma richiedere che \(\textbf{y}^T\overline{A} \geq \textbf{0}^T\) è equivalente a richiedere \(\textbf{y}^TA \geq \textbf{0}^T\) e \(\textbf{y} \geq \textbf{0}\) (i.e. la non negatività di \(\textbf{y}\)); dunque abbiamo dimostrato l'equivalenza richiesta.
+\end{proof}
 
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
 \label{subsec:dim_dualità}
