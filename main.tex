@@ -379,7 +379,7 @@ Da questa definizione si ottiene facilmente che il Lemma di Farkas è equivalent
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}[>=latex, line width=1]
-      \fill[fill=blue!30!white, path fading=west, fading angle=-45, line width=0.0mm]
+      \fill[fill=blue!30!white, path fading=west, fading angle=-45]
         (0, 0) -- (-4, 1.33) -- (-1.25, 5) -- cycle;
 
       \draw[->] (0, 0) -- (-3, 1) node [above]{\(\textbf{a}_1\)};
@@ -390,7 +390,7 @@ Da questa definizione si ottiene facilmente che il Lemma di Farkas è equivalent
       \filldraw (0, 0) circle (2pt) node[above right]{\(\textbf{0}\)};
     \end{tikzpicture}\hspace{1cm}
     \begin{tikzpicture}[>=latex, line width=1]
-      \fill[fill=blue!30!white, path fading=west, fading angle=-45, line width=0.0mm]
+      \fill[fill=blue!30!white, path fading=west, fading angle=-45]
       (0, 0) -- (-4, 1.33) -- (-1.25, 5) -- cycle;
 
       \draw[->] (0, 0) -- (-3, 1) node [above]{\(\textbf{a}_1\)};
@@ -425,6 +425,75 @@ La seguente proposizione verrà utilizzata nella dimostrazione del Teorema di Du
 
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
 \label{subsec:dim_dualità}
+
+Il seguente teorema fornisce condizioni sufficienti per la limitatezza di un problema lineare.
+
+\begin{theorem}
+  \label{teo:condizioni_sufficienti}
+  Si consideri il seguente problema lineare
+  \begin{equation*}
+    \begin{array}{ll}
+      \text{Minimizza} & \mathbf{c}^T\mathbf{x}\\
+      \text{rispetto ai vincoli} & A\mathbf{x} \ge \mathbf{b}\\
+                        & \mathbf{x} \ge 0.
+    \end{array}
+  \end{equation*}
+  Se il problema ha una soluzione possibile e la funzione obiettivo \(\mathbf{c}^T\mathbf{x}\) è limitata \emph{inferiormente} sull'insieme di tutte le soluzioni possibili allora il problema ammette una soluzione ottimale.
+\end{theorem}
+
+\begin{proof}
+  Una dimostrazione di questo teorema (in una forma leggermente diversa, ma equivalente) si può trovare in \cite[Theorem 4.2.3]{understanding_linear_programming}.
+\end{proof}
+
+\begin{proof}[Dimostrazione del Teorema di Dualità \ref{teo:dualità}]
+  Come visto in \S\ref{sec:problemi_lineari} un problema lineare può essere insoddisfacibile, soddisfacibile limitato o soffisfacibile illimitato.
+  Abbiamo dunque 3 possibilità per \((P)\) e altrettante per \((\dual{P})\) per un totale di 9 possibili combinazioni.
+  La Proposizione \ref{prop:dualità_debole} ci permette subito di escludere i seguenti casi
+  \begin{itemize}
+  \item \((P)\) illimitato e \((\dual{P})\) limitato,
+  \item \((\dual{P})\) illimitato e \((P)\) limitato.
+  \item \((P)\) illimitato e \((\dual{P})\) illimitato.
+  \end{itemize}
+  Mostreremo ora che se \((P)\) è limitato allora anche \((\dual{P})\) lo è e dunque, per dualità, che se \((\dual{P})\) è limitato allora anche \((P)\) lo è.
+  Questo esclude i casi
+  \begin{itemize}
+  \item \((P)\) limitato e \((\dual{P})\) insoddisfacibile,
+  \item \((\dual{P})\) limitato e \((P)\) insoddisfacibile.
+  \end{itemize}
+  Una volta fatto questo i casi rimasti sono solo quelli elencati nell'enunciato del Lemma di Farkas \ref{lemma:farkas} e la dimostrazione è completa.
+
+  Supponiamo quindi che \((P)\) sia limitato e siano: \(\textbf{x}^*\) una soluzione ottimale, \(\gamma = \textbf{c}^T \textbf{x}\) il valore di massimo e \(\varepsilon \geq 0\).
+  Definiamo
+  \[\overline{A} =
+    \begin{pmatrix}
+      A\\
+      -\textbf{c}^T
+    \end{pmatrix},\quad \overline{\textbf{b}_\varepsilon} =
+    \begin{pmatrix}
+      \mathbf{b}\\
+      -\gamma-\varepsilon
+    \end{pmatrix}\]
+  e osserviamo che il sistema di disequazioni \(\overline{A}\textbf{x} \leq \overline{\textbf{b}_\varepsilon}\) è equivalente a
+  \[A \textbf{x} \leq \textbf{b}, \textbf{c}^T \textbf{x} \geq \gamma + \varepsilon\]
+  e dunque ammette una soluzione non negativa se e solo se \(\varepsilon = 0\).
+
+  Siccome \(\overline{A}\textbf{x} \leq \overline{\textbf{b}_\varepsilon}\) non ha soluzioni non negative per \(\varepsilon>0\) la Proposizione \ref{prop:farkas_2} ci dice che esiste un vettore \(\overline{\textbf{y}}=(\textbf{u}, z)\in \mathbb{R}^{m+1}\) non negativo e tale che \(\overline{\textbf{y}}^TA \geq \textbf{0}^T\) ma \(\overline{\textbf{y}}^T\overline{\textbf{b}_\varepsilon} < 0\).
+  Queste disuguaglianze possono essere riscritte, più chiaramente, come
+  \begin{equation*}
+    \tag{\(*\)}
+    A^T \textbf{u} \geq z \textbf{c},\ \textbf{b}^T \textbf{u} < z(\gamma + \varepsilon).
+  \end{equation*}
+  Applicando la Proposizione \ref{prop:farkas_2} al caso \(\varepsilon=0\) si ottiene che il suddetto vettore \(\overline{\textbf{y}}\) deve soddisfare \(\overline{\textbf{y}}^T \overline{\textbf{b}_0} \geq 0\) e cioè che \(\textbf{b}^T \textbf{u} \ge z\gamma\).
+  Da questa ultima relazione e da \((*)\) segue che bisogna avere \(z>0\) ed è quindi possibile definire il vettore \(\textbf{v} = \frac{1}{z}\textbf{u}\) che è chiaramente non negativo e tale che
+  \begin{equation*}
+    A^T \textbf{v} \geq \textbf{c},\ \textbf{b}^T \textbf{v} < \gamma + \varepsilon.
+  \end{equation*}
+  Abbiamo dunque ottenuto una soluzione di \((\dual{P})\) con valore della funzione obiettivo minore di \(\gamma + \varepsilon\).
+
+  Per la Proposizione \ref{prop:dualità_debole} ogni soluzione di \((\dual{P})\) deve avere valore della funzione obiettivo maggiore o uguale a \(\gamma\).
+  Si ha quindi che \((\dual{P})\) è un problema lineare soddisfacibile e con funzione obiettivo limitata inferiormente sull'insieme delle soluzioni possibili, dunque ammette una soluzione ottimale \(\textbf{y}^*\) (Teorema \ref{teo:condizioni_sufficienti}).
+  Inoltre si ha che \(\gamma \le \textbf{b}^T\textbf{y}^* < \gamma + \varepsilon\) per ogni \(\varepsilon>0\) e quindi si deve avere \(\gamma = \textbf{c}^T \textbf{x}^* = \textbf{b}^T\textbf{y}^*\).
+\end{proof}
 
 \begin{thebibliography}{1}
 \bibitem{understanding_linear_programming}
