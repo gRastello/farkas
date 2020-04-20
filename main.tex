@@ -37,10 +37,11 @@
 
 \usepackage{tikz}
 \usetikzlibrary{cd}
+\usetikzlibrary{fadings}
 
 % Figures stuff.
 \usepackage{caption}
-\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+% \renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
 
 % Lists stuff.
 \usepackage{enumitem}
@@ -364,7 +365,7 @@ Per farlo introduciamo la nozione di cono convesso generato da un insieme di vet
   delle loro combinazioni lineari a coefficienti non negativi.
 \end{definition}
 
-Da questa definizione si ottiene facilmente che il Lemma di Farkas è equivalente alla seguente affermazione geometrica.
+Da questa definizione si ottiene facilmente che il Lemma di Farkas è equivalente alla seguente affermazione geometrica (si veda anche la Figura \ref{fig:farkas_geometrico}).
 
 \begin{lemma}[Lemma di Farkas (versione geometrica)]
   \label{lemma:farkas_geometrico}
@@ -374,6 +375,38 @@ Da questa definizione si ottiene facilmente che il Lemma di Farkas è equivalent
   \item esiste un iperpiano \(\{\mathbf{x}\in\mathbb{R}^M\colon\ \mathbf{y}^T\mathbf{x} = 0\}\) di \(\mathbb{R}^m\) che ``separa'' gli \(\mathbf{a}_i\) da \(\mathbf{b}\); cioè tale che \(\mathbf{y}^T\mathbf{a}_i \leq 0\) per ogni \(i=1,\ldots, n\) e \(\mathbf{y}^T\mathbf{b} > 0\).
   \end{enumerate}
 \end{lemma}
+
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}[>=latex, line width=1]
+      \fill[fill=blue!30!white, path fading=west, fading angle=-45, line width=0.0mm]
+        (0, 0) -- (-4, 1.33) -- (-1.25, 5) -- cycle;
+
+      \draw[->] (0, 0) -- (-3, 1) node [above]{\(\textbf{a}_1\)};
+      \draw[->] (0, 0) -- (-2, 2) node [above]{\(\textbf{a}_2\)};
+      \draw[->] (0, 0) -- (-1, 4) node [above right]{\(\textbf{a}_3\)};
+      \draw[->] (0, 0) -- (-1.5, 3.75) node [above]{\(\textbf{b}\)};
+            
+      \filldraw (0, 0) circle (2pt) node[above right]{\(\textbf{0}\)};
+    \end{tikzpicture}\hspace{1cm}
+    \begin{tikzpicture}[>=latex, line width=1]
+      \fill[fill=blue!30!white, path fading=west, fading angle=-45, line width=0.0mm]
+      (0, 0) -- (-4, 1.33) -- (-1.25, 5) -- cycle;
+
+      \draw[->] (0, 0) -- (-3, 1) node [above]{\(\textbf{a}_1\)};
+      \draw[->] (0, 0) -- (-2, 2) node [above]{\(\textbf{a}_2\)};
+      \draw[->] (0, 0) -- (-1, 4) node [above right]{\(\textbf{a}_3\)};
+      \draw[->] (0, 0) -- (3, 2.25) node [above]{\(\textbf{b}\)};
+      
+      \filldraw (0, 0) circle (2pt) node[below right]{\(\textbf{0}\)};
+
+      \draw[dashed] (-.5, -1) -- (2, 4) node[above right]{\(H\)};
+    \end{tikzpicture}
+  \end{center}
+  \caption{}
+  \label{fig:farkas_geometrico}
+\end{figure}
+
 
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
 \label{subsec:dim_dualità}
