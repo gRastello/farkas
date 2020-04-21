@@ -97,7 +97,7 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
         \draw[domain = -.75:4] plot (\x, {(15 - \x)/6});
         \draw[domain = 2.25:3.5] plot (\x, {4*\x - 10});
 
-        \filldraw (3, 2) circle (3pt) node[above right]{\((3,2)\)};
+        \filldraw (3, 2) circle (2pt) node[above right]{\((3,2)\)};
       \end{tikzpicture}
     \end{center}
     \caption{}
@@ -196,6 +196,7 @@ Concludiamo la sezione con un esempio di applicazione dei problemi lineari all'a
 
 \section{Dualità e Lemma di Farkas}
 \label{sec:dualità_e_lemma_di_farkas}
+\epigraph{The Farkas Lemma is not exactly a difficult theorem, but it is not trivial either.}{\textit{Jiri Matousek, Bernd Garter}}
 
 \subsection{Problemi lineari duali e Teorema di Dualità}
 \label{subsec:duali}
@@ -434,9 +435,7 @@ Occorre prima dimostrare il seguente lemma.
   Si veda anche la Figura \ref{fig:punto_vicino}.
 \end{lemma}
 
-Per dimostrare questo lemma sono necessari un altro paio di risultati.
-
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
     \begin{tikzpicture}[>=latex, line width=1]
       \fill[fill=blue!30!white, path fading=west, fading angle=-45]
@@ -456,6 +455,8 @@ Per dimostrare questo lemma sono necessari un altro paio di risultati.
   \caption{}
   \label{fig:punto_vicino}
 \end{figure}
+
+Per dimostrare questo lemma sono necessari un altro paio di risultati.
 
 \begin{proposition}
   \label{prop:closed_nearest_point}
