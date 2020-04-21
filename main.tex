@@ -423,6 +423,36 @@ La seguente proposizione verrà utilizzata nella dimostrazione del Teorema di Du
   Ma richiedere che \(\textbf{y}^T\overline{A} \geq \textbf{0}^T\) è equivalente a richiedere \(\textbf{y}^TA \geq \textbf{0}^T\) e \(\textbf{y} \geq \textbf{0}\) (i.e. la non negatività di \(\textbf{y}\)); dunque abbiamo dimostrato l'equivalenza richiesta.
 \end{proof}
 
+Procederemo ora a dimostrare il Lemma di Farkas nella sua versione geometrica.
+Occorre prima dimostrare il seguente lemma.
+
+\begin{lemma}
+  \label{lemma:punto_vicino}
+  Se \(C\) è un cono convesso generato dai vettori \(\mathbf{a}_1,\ldots,\mathbf{a}_n\) e \(\mathbf{b}\) è un punto non appartenente a \(C\) allora esiste un punto \(\mathbf{z}\in C\) tale che \(\|\mathbf{b} - \mathbf{z}\| \le \|\mathbf{b} - \mathbf{z}'\|\) per ogni \(\mathbf{z}'\in C\).
+  Si veda anche la Figura \ref{fig:punto_vicino}.
+\end{lemma}
+
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}[>=latex, line width=1]
+      \fill[fill=blue!30!white, path fading=west, fading angle=-45]
+        (0, 0) -- (-4, 0) -- (0, 4) -- cycle;
+
+      \draw[->] (0, 0) -- (-3, 0) node [above]{\(\textbf{a}_1\)};
+      \draw[->] (0, 0) -- (-1.5, 2) node [above right]{\(\textbf{a}_2\)};
+      \draw[->] (0, 0) -- (0, 3) node [above right]{\(\textbf{a}_3\)};
+      \draw[->] (0, 0) -- (2.5, 1) node [above]{\(\textbf{b}\)};
+
+      \draw[dashed] (0, 1) -- (2.5, 1);
+
+      \filldraw (0, 1) circle (2pt) node[above right]{\(\textbf{z}\)};
+      \filldraw (0, 0) circle (2pt) node[below right]{\(\textbf{0}\)};
+    \end{tikzpicture}\hspace{1cm}
+  \end{center}
+  \caption{}
+  \label{fig:punto_vicino}
+\end{figure}
+
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
 \label{subsec:dim_dualità}
 
