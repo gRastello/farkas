@@ -427,7 +427,7 @@ La seguente proposizione verrà utilizzata nella dimostrazione del Teorema di Du
 \end{proof}
 
 Procederemo ora a dimostrare il Lemma di Farkas nella sua versione geometrica.
-Occorre prima dimostrare il seguente lemma.
+Occorre prima dimostrare il seguente ultieriore lemma.
 
 \begin{lemma}
   \label{lemma:punto_vicino}
@@ -546,6 +546,31 @@ Per dimostrare questo lemma sono necessari un altro paio di risultati.
 
 \begin{proof}[Dimostrazione del Lemma \ref{lemma:punto_vicino}]
   Immediata dalle Proposizioni \ref{prop:coni_chiusi} e \ref{prop:closed_nearest_point}.
+\end{proof}
+
+\begin{proof}[Dimostrazione del Lemma di Farkas (\ref{lemma:farkas_geometrico})]
+  Se \(\mathbf{b}\in C\) non c'è nulla da dimostrare, dunque poniamoci nel caso \(\mathbf{b}\not\in C\).
+  Sia quindi \(\mathbf{z}\) il punto di \(C\) più vicino a \(\mathbf{b}\) che esiste in virtù del Lemma \ref{lemma:punto_vicino}.
+  Definiamo \(\mathbf{y} = \mathbf{z} - \mathbf{b}\) e controlliamo che l'iperpiano \(\big\{\mathbf{x}\in \mathbb{R}^m\colon\ \mathbf{y}^T \mathbf{x} = 0\big\}\) ``separa'' gli \(\mathbf{a}_i\) da \(\mathbf{b}\).
+
+  Proviamo innanzitutto che \(\mathbf{y}^T \mathbf{z} = 0\) i.e. che \(\mathbf{y}\) e \(\mathbf{z}\) sono perpendicolari.
+  Se \(\mathbf{z} = 0\) la cosa è ovvia; possiamo dunque assumere che \(\mathbf{z}\neq0\).
+  Supponiamo per assurdo che \(\mathbf{z}\) non sia perpendicolare a \(\mathbf{y}\).
+  Allora è possibile trovare un punto \(\mathbf{z}'\) sulla semiretta \(\big\{t \mathbf{z}\colon\ t \ge 0\big\}\) tale che \(\|\mathbf{b} - \mathbf{z}'\| < \|\mathbf{b} - \mathbf{z}\|\); ma \(\mathbf{z}\) è il punto di \(C\) più vicino a \(\mathbf{b}\), dunque abbiamo una contraddizione.
+
+  Ora siccome \(\mathbf{b}\not\in C\) si ha \(\mathbf{y}\neq \mathbf{0}\) e dunque
+  \begin{equation*}
+    0 < \mathbf{y}^T \mathbf{y} = \mathbf{y}^T(\mathbf{z} - \mathbf{b}) = -\mathbf{y}^T \mathbf{b}.
+  \end{equation*}
+  Questo ci dice che \(\mathbf{y}^T \mathbf{b} < 0\).
+
+  Infine consideriamo un generico \(\mathbf{x}\in C, \mathbf{x}\neq \mathbf{z}\) e dimostriamo che \(\mathbf{y}^T \mathbf{x} \ge 0\); una volta fatto questo, siccome gli \(\mathbf{a}_i\) sono tutti elementi di \(C\), la dimostrazione sarà completata.
+  Si deve avere \((\mathbf{b} - \mathbf{x})^T(\mathbf{x} - \mathbf{z}) \le 0\) perché altrimenti l'angolo \(\sphericalangle \mathbf{b}\mathbf{z}\mathbf{x}\) sarebbe minore di \(90^\circ\) e allora ci sarebbe un punto \(\mathbf{z}'\) del segmento \(\mathbf{z}\mathbf{x}\) tale che \(\|\mathbf{b} - \mathbf{z}'\| < \|\mathbf{b} - \mathbf{z}\|\) contraddicendo ancora il fatto che \(\mathbf{z}\) sia il punto di \(C\) più vicino a \(\mathbf{b}\).
+  Possiamo ora scrivere
+  \begin{equation*}
+    0 \ge (\mathbf{b} - \mathbf{x})^T(\mathbf{x} - \mathbf{z}) = -\mathbf{y}^T \mathbf{x} + \mathbf{y}^T \mathbf{z} = -\mathbf{y}^T \mathbf{x}
+  \end{equation*}
+  e dunque \(\mathbf{y}^T \mathbf{x} \ge 0\).
 \end{proof}
 
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
