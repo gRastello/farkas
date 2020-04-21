@@ -527,6 +527,26 @@ Per dimostrare questo lemma sono necessari un altro paio di risultati.
   che esprime \(\mathbf{x}\) come combinazione lineare a coefficienti non negativi di meno di \(|I|\) vettori (perché una delle \(\alpha_i - t\beta_i\) è nulla) in contraddizione con la definizione di \(I\).
 \end{proof}
 
+\begin{proposition}
+  \label{prop:coni_chiusi}
+  Ogni cono convesso generato da un insieme finito di vettori \(\mathbf{a}_1,\ldots,\mathbf{a}_n\) è chiuso.
+\end{proposition}
+
+\begin{proof}
+  Ovvia dalle Proposizioni \ref{prop:coni_primitivi_chiusi}, \ref{prop:unione_di_coni} e dal fatto che l'unione finita di chiusi è un chiuso.
+\end{proof}
+
+\begin{remark}
+  \label{oss:numero_finito}
+  La Proposizione \ref{prop:coni_chiusi} non si applica ai coni generati da un numero infinito di vettori.
+  Si consideri infatti un disco chiuso \(D\) il cui bordo contenga l'origine \(\mathbf{0}\).
+  Il cono generato da tutti i vettori che compongono \(D\) è un semipiano aperto unito al singoletto \(\{\mathbf{0}\}\) e questo non è un insieme chiuso.
+\end{remark}
+
+\begin{proof}[Dimostrazione del Lemma \ref{lemma:punto_vicino}]
+  Immediata dalle Proposizioni \ref{prop:coni_chiusi} e \ref{prop:closed_nearest_point}.
+\end{proof}
+
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
 \label{subsec:dim_dualità}
 
