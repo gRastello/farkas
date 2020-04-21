@@ -50,6 +50,8 @@
 % Commands.
 \newcommand{\dual}[1]{#1^{\text{op}}}
 
+\DeclareMathOperator{\im}{im}
+
 % Useless stuff.
 \usepackage{epigraph}
 
@@ -432,6 +434,8 @@ Occorre prima dimostrare il seguente lemma.
   Si veda anche la Figura \ref{fig:punto_vicino}.
 \end{lemma}
 
+Per dimostrare questo lemma sono necessari un altro paio di risultati.
+
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}[>=latex, line width=1]
@@ -473,6 +477,31 @@ Occorre prima dimostrare il seguente lemma.
   \end{equation*}
   che sappiamo essere continua.
   Siccome \(K\) è compatto \(f\) ha un minimo; esiste cioè un punto \(\mathbf{z}\in K\) tale che \(\|\mathbf{b} - \mathbf{z}\| \le \|\mathbf{b} - \mathbf{z}'\|\) per ogni \(\mathbf{z}'\in K\).
+\end{proof}
+
+\begin{definition}
+  \label{def:cono_primitivo}
+  Un \textbf{cono primitivo} di \(\mathbb{R}^m\) è un cono convesso generato da un insieme \emph{linearmente indipendente} di vettori.
+\end{definition}
+
+\begin{proposition}
+  \label{prop:coni_primitivi_chiusi}
+  Ogni cono primitivo \(P\) di \(\mathbb{R}^m\) è chiuso.
+\end{proposition}
+
+\begin{proof}
+  Supponiamo che \(P\subseteq \mathbb{R}^m\) sia generato dai vettori (linearmente indipendenti) \(\mathbf{a}_1,\ldots,\mathbf{a}_k\) e sia \(P_0\) il cono chiuso di \(\mathbb{R}^k\) generato dai vettori \(\mathbf{e}_1,\ldots,\mathbf{e}_k\) della base canonica;  \(P_0\) è chiaramente chiuso.
+  Consideriamo ora la mappa lineare
+  \begin{equation*}
+    \begin{array}{crcl}
+      f\colon & \mathbb{R}^k & \to & \mathbb{R}^m\\
+              & \mathbf{x} & \mapsto & x_1 \mathbf{a}_1 + \ldots + x_n \mathbf{a}_n
+    \end{array}
+  \end{equation*}
+  che è iniettiva, per l'indipendenta degli \(\mathbf{a}_i\), e tale che \(P = f(P_0)\).
+  Per iniettività \(f\) è un isomorfismo lineare tra \(\mathbb{R}^k\) e \(\im(f)\); possiamo dunque considerare la mappa lineare inversa \(f^{-1}\).
+  Siccome le mappe lineari sono continue si ha che \(P\), in quanto controimmagine di \(P_0\) mediante \(f^{-1}\), è chiuso in \(\im(f)\).
+  Ma \(\im(f)\) è un sottospazio lineare di \(\mathbb{R}^m\), dunque è chiuso in \(\mathbb{R}^m\) e così anche \(P\) lo è\footnote{Un sottoinsieme di un sottospazio topologico chiuso è chiuso se e solo se è chiuso nello spazio ambiente}.
 \end{proof}
 
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
