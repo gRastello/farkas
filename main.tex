@@ -453,6 +453,28 @@ Occorre prima dimostrare il seguente lemma.
   \label{fig:punto_vicino}
 \end{figure}
 
+\begin{proposition}
+  \label{prop:closed_nearest_point}
+  Sia \(X\subseteq \mathbb{R}^m\) un chiuso non vuoto e \(\mathbf{b}\) un punto arbitrario di \(\mathbb{R}^m\).
+  Allora esiste un punto \(\mathbf{z}\in X\) tale che \(\|\mathbf{b}-\mathbf{z}\| \le \|\mathbf{b} - \mathbf{z}'\|\) per ogni \(\mathbf{z}'\in X\).
+\end{proposition}
+
+\begin{proof}
+  Fissiamo un punto \(\mathbf{x}_0\in X\) e consideriamo l'insieme
+  \[K=\big\{\mathbf{x}\in X\colon\ \|\mathbf{b} - \mathbf{x}\| \le \|\mathbf{b} - \mathbf{x}_0\|\big\}.\]
+  Chiaramente se il risultato vale per \(K\) vale anche per \(X\).
+  Inoltre \(K\) è l'intersezione di \(X\) (chiuso) con la palla chiusa di centro \(\mathbf{b}\) e raggio \(\|\mathbf{b} - \mathbf{x}_0\|\) dunque è un insieme chiuso e limitato e quindi compatto.
+  Consideriamo ora la funzione
+  \begin{equation*}
+    \begin{array}{crcl}
+      f\colon & K & \to & \mathbb{R}\\
+              & \mathbf{x} & \mapsto & \|\mathbf{b} - \mathbf{x}\|
+    \end{array}
+  \end{equation*}
+  che sappiamo essere continua.
+  Siccome \(K\) è compatto \(f\) ha un minimo; esiste cioè un punto \(\mathbf{z}\in K\) tale che \(\|\mathbf{b} - \mathbf{z}\| \le \|\mathbf{b} - \mathbf{z}'\|\) per ogni \(\mathbf{z}'\in K\).
+\end{proof}
+
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
 \label{subsec:dim_dualità}
 
