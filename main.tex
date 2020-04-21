@@ -504,6 +504,29 @@ Per dimostrare questo lemma sono necessari un altro paio di risultati.
   Ma \(\im(f)\) è un sottospazio lineare di \(\mathbb{R}^m\), dunque è chiuso in \(\mathbb{R}^m\) e così anche \(P\) lo è\footnote{Un sottoinsieme di un sottospazio topologico chiuso è chiuso se e solo se è chiuso nello spazio ambiente.}.
 \end{proof}
 
+\begin{proposition}
+  \label{prop:unione_di_coni}
+  Sia \(C\) un cono convesso di \(\mathbb{R}^m\) generato dai vettori \(\mathbf{a}_1,\ldots,\mathbf{a}_n\).
+  Allora \(C\) si può esprimere come unione di un numero finito di coni primitivi.
+\end{proposition}
+
+\begin{proof}
+  Per ogni \(\mathbf{x}\in C\) verifichiamo che esiste un cono principale generato da un sottoinsieme linearmente indipendente dei vettori \(\mathbf{a}_i\) che contiene \(\mathbf{x}\).
+
+  Sia \(I\subseteq\{1,\ldots, n\}\) l'insieme più piccolo tale che \(\mathbf{x}\) appartenga al cono generato da \(A_I=\{\mathbf{a}_i\colon\ i\in I\}\).
+  Abbiamo dunque che esistono coefficienti non negativi \(\alpha_i\) tali che \(\mathbf{x} = \sum_{i\in I}\alpha_i \mathbf{a}_i\).
+  Ma possiamo addirittura richiedere che gli \(\alpha_i\) siano strettamente positivi; infatti se \(\alpha_j = 0\) si ha che \(\mathbf{x}\) è ancora contenuto nel cono generato da \(A_{I\setminus\{j\}}\).
+  È ora sufficiente mostrare che \(A_I\) è un insieme linearmente indipendente di vettori.
+
+  Per assurdo supponiamo che esistano coefficienti \(\beta_i\) tali che \(\sum_{i\in I}\beta_i \mathbf{a}_i=\mathbf{0}\) con almeno un \(\beta_j\neq0\).
+  Allora esiste un \(t\in \mathbb{R}\) tale che tutte le espressioni \(\alpha_i - t\beta_i\) sono non negative e almeno una di queste è nulla (se esistono dei \(\beta_j\) strettamente positivi basta porre \(t\) uguale al minimo del valore \(\frac{\alpha_j}{\beta_j}\) computato su questi \(\beta_j\); se non esistono \(\beta_j\) strettamente positivi si può prima sostituire ogni \(\beta_i\) con \(-\beta_i\))).
+  Si ottiene quindi  
+  \begin{equation*}
+    \mathbf{x} = \mathbf{x} - t\cdot\mathbf{0} = \sum_{i\in I}(\alpha_i - t\beta_i)\mathbf{a}_i
+  \end{equation*}
+  che esprime \(\mathbf{x}\) come combinazione lineare a coefficienti non negativi di meno di \(|I|\) vettori (perché una delle \(\alpha_i - t\beta_i\) è nulla) in contraddizione con la definizione di \(I\).
+\end{proof}
+
 \subsection{Dimostrazione del Teorema di Dualità dal Lemma di Farkas}
 \label{subsec:dim_dualità}
 
