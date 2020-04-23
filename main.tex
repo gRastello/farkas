@@ -565,10 +565,10 @@ Per dimostrare questo lemma sono necessari un altro paio di risultati.
   Questo ci dice che \(\mathbf{y}^T \mathbf{b} < 0\).
 
   Infine consideriamo un generico \(\mathbf{x}\in C, \mathbf{x}\neq \mathbf{z}\) e dimostriamo che \(\mathbf{y}^T \mathbf{x} \ge 0\); una volta fatto questo, siccome gli \(\mathbf{a}_i\) sono tutti elementi di \(C\), la dimostrazione sarà completata.
-  Si deve avere \((\mathbf{b} - \mathbf{x})^T(\mathbf{x} - \mathbf{z}) \le 0\) perché altrimenti l'angolo \(\sphericalangle \mathbf{b}\mathbf{z}\mathbf{x}\) sarebbe minore di \(90^\circ\) e allora ci sarebbe un punto \(\mathbf{z}'\) del segmento \(\mathbf{z}\mathbf{x}\) tale che \(\|\mathbf{b} - \mathbf{z}'\| < \|\mathbf{b} - \mathbf{z}\|\) contraddicendo ancora il fatto che \(\mathbf{z}\) sia il punto di \(C\) più vicino a \(\mathbf{b}\).
+  Si deve avere \((\mathbf{b} - \mathbf{z})^T(\mathbf{x} - \mathbf{z}) \le 0\) perché altrimenti l'angolo \(\sphericalangle \mathbf{b}\mathbf{z}\mathbf{x}\) sarebbe minore di \(90^\circ\) e allora ci sarebbe un punto \(\mathbf{z}'\) del segmento \(\mathbf{z}\mathbf{x}\) tale che \(\|\mathbf{b} - \mathbf{z}'\| < \|\mathbf{b} - \mathbf{z}\|\) contraddicendo ancora il fatto che \(\mathbf{z}\) sia il punto di \(C\) più vicino a \(\mathbf{b}\).
   Possiamo ora scrivere
   \begin{equation*}
-    0 \ge (\mathbf{b} - \mathbf{x})^T(\mathbf{x} - \mathbf{z}) = -\mathbf{y}^T \mathbf{x} + \mathbf{y}^T \mathbf{z} = -\mathbf{y}^T \mathbf{x}
+    0 \ge (\mathbf{b} - \mathbf{z})^T(\mathbf{x} - \mathbf{z}) = -\mathbf{y}^T \mathbf{x} + \mathbf{y}^T \mathbf{z} = -\mathbf{y}^T \mathbf{x}
   \end{equation*}
   e dunque \(\mathbf{y}^T \mathbf{x} \ge 0\).
 \end{proof}
