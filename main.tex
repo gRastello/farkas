@@ -496,7 +496,7 @@ Per dimostrare questo lemma sono necessari un altro paio di risultati.
   \begin{equation*}
     \begin{array}{crcl}
       f\colon & \mathbb{R}^k & \to & \mathbb{R}^m\\
-              & \mathbf{x} & \mapsto & x_1 \mathbf{a}_1 + \ldots + x_n \mathbf{a}_n
+              & \mathbf{x} & \mapsto & x_1 \mathbf{a}_1 + \ldots + x_k \mathbf{a}_k
     \end{array}
   \end{equation*}
   che è iniettiva, per l'indipendenta degli \(\mathbf{a}_i\), e tale che \(P = f(P_0)\).
@@ -612,7 +612,7 @@ Il seguente teorema fornisce condizioni sufficienti per la limitatezza di un pro
   \end{itemize}
   Una volta fatto questo i casi rimasti sono solo quelli elencati nell'enunciato del Lemma di Farkas \ref{lemma:farkas} e la dimostrazione è completa.
 
-  Supponiamo quindi che \((P)\) sia limitato e siano: \(\textbf{x}^*\) una soluzione ottimale, \(\gamma = \textbf{c}^T \textbf{x}\) il valore di massimo e \(\varepsilon \geq 0\).
+  Supponiamo quindi che \((P)\) sia limitato e siano: \(\textbf{x}^*\) una soluzione ottimale, \(\gamma = \textbf{c}^T \textbf{x}^*\) il valore di massimo e \(\varepsilon \geq 0\).
   Definiamo
   \[\overline{A} =
     \begin{pmatrix}
