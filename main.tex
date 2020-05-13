@@ -1,12 +1,19 @@
-\documentclass[italian, letter paper, 12pt, reqno]{article}
+\documentclass[italian, 12pt, reqno]{article}
 \usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
 
-\setlength{\evensidemargin}{0.1in}
-\setlength{\oddsidemargin}{0.1in}
-\setlength{\textwidth}{6.3in}
-\setlength{\topmargin}{0.0in}
-\setlength{\textheight}{8.5in}
-\setlength{\headheight}{0in}
+% Stylistic points.
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  right=2.5cm,
+  left=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm,
+  %showframe,
+}
+
+\usepackage{mathpazo} % Math Palatino font.
 
 % Links and references.
 \usepackage{xcolor}
@@ -20,7 +27,7 @@
 	{}
 	{}
 	{\bfseries}
-	{.}
+        {.}
 	{2pt}
 	{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 \theoremstyle{myteo}
@@ -41,7 +48,7 @@
 
 % Figures stuff.
 \usepackage{caption}
-% \renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
 
 % Lists stuff.
 \usepackage{enumitem}
@@ -58,9 +65,11 @@
 \begin{document}
 \title{Appunti sul Teorema di Dualità e sul Lemma di Farkas}
 \author{Gabriele Rastello}
+\date{27 aprile 2020}
 \maketitle
 \tableofcontents
 
+\newpage
 \section{Problemi lineari}
 \label{sec:problemi_lineari}
 \epigraph{Linear programming, surprisingly, is not directly related to computer programming.}{\textit{Jiri Matousek, Bernd Garter}}
@@ -84,7 +93,7 @@ Prima di definire formalmente un problema lineare consideriamo un esempio.
   Esiste dunque una coppia \((x_1^*,x_2^*)\) che massimizza \(x_1+x_2\); la coppia in questione può essere ottenuta cercando quale punto del poligono si trova ``più distante'' nella direzione di massima crescita della funzione (data dal suo gradiente \((1, 1)\)).
   Otteniamo così \(x_1^*=3, x_2^*=2\) e infine che il valore massimo di \(x_1+x_2\) rispetto ai vincoli dati è \(5\).
 
-  \begin{figure}
+  \begin{figure}[h]
     \begin{center}
       \begin{tikzpicture}
         \filldraw[fill=green!20!white]
@@ -194,8 +203,10 @@ Concludiamo la sezione con un esempio di applicazione dei problemi lineari all'a
   Questo ci dice che, computazionalmente, il problema di ricerca di una soluzione ottimale è tanto difficile quanto quello di ricerca di una soluzione qualunque.
 \end{remark}
 
+\newpage
 \section{Dualità e Lemma di Farkas}
 \label{sec:dualità_e_lemma_di_farkas}
+\setcounter{figure}{0}
 \epigraph{The Farkas Lemma is not exactly a difficult theorem, but it is not trivial either.}{\textit{Jiri Matousek, Bernd Garter}}
 
 \subsection{Problemi lineari duali e Teorema di Dualità}
